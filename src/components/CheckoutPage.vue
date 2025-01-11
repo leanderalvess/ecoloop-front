@@ -10,7 +10,7 @@
         <button @click="removeFromCart(item)" class="btn btn-danger">Remove</button>
       </div>
       <div class="checkout-summary">
-        <p class="total">Total: ${{ totalPrice }}</p>
+        <p class="total">Total: ${{ totalPrice.toFixed(2) }}</p>
         <div>
           <button @click="clearCart(cart)" style="margin-right: 3px;" class="btn btn-warning mr-2">Clear</button>
           <button @click="checkout" class="btn btn-success">Checkout</button>

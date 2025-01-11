@@ -9,7 +9,7 @@
     </div>
     <div class="product-grid">
       <div v-for="product in products" :key="product.id" class="product-card">
-        <img :src="findImage(product.name)" alt="Product Image" class="product-image" />
+        <img :src="product.image ?? findImage(product.name)" alt="Product Image" class="product-image" />
         <div class="product-info">
           <h5>{{ product.name }}</h5>
           <p>${{ product.price.toFixed(2) }}</p>
