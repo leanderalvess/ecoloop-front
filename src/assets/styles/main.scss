@@ -1,0 +1,16 @@
+@import './variables';
+@import './mixins';
+@import './buttons';
+@import './forms';
+
+body {
+  font-family: $font-family;
+  margin: 0;
+  padding: $container-padding;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}

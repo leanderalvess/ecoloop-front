@@ -1,85 +1,101 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <div id="app">
+    <nav class="navbar">
+      <router-link to="/" class="logo">
+        <h2 class="navbar-brand">Ecoloop's</h2>
+      </router-link>
+      <div class="nav-links">
+        <router-link to="/checkout" class="btn btn-cart">🛒 Cart</router-link>
+      </div>
+    </nav>
+    <router-view />
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<script lang="ts">
+export default {
+  name: 'App',
+};
+</script>
+
+<style lang="scss">
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #F0F0F0;
+  color: #222222;
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  text-decoration: none;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
+.navbar {
+  background-color: #333333;
+  border-radius: 25px;
+  padding: 10px;
   text-align: center;
-  margin-top: 2rem;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
+  .navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #F0F0F0;
+    margin-left: 30px;
+    margin-top: 5px;
+  }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
+  .nav-links {
+    margin-right: 20px;
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    gap: 15px;
+
+    .btn-link {
+      color: #007bff;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+
+    .btn-cart {
+      color: #F0F0F0;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      border: none;
+      text-decoration: none;
+
+      &:hover {
+        background-color: #555555;
+      }
+    }
   }
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.container {
+  padding: 20px;
+  margin: auto;
+  max-width: 1200px;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333333;
+}
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
   }
 }
 </style>
