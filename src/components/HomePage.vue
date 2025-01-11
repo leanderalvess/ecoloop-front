@@ -59,9 +59,13 @@ export default defineComponent({
     const cart = ref<Product[]>(JSON.parse(localStorage.getItem('cart') || '[]'));
 
     const fetchProducts = async () => {
-      const apiUrl = import.meta.env.VITE_API_ENV + 'products';
-      const response = await axios.get(apiUrl, { params: filters.value });
-      products.value = response.data;
+      try {
+        const apiUrl = import.meta.env.VITE_API_ENV + 'products';
+        const response = await axios.get(apiUrl, { params: filters.value });
+        products.value = response.data;
+      } catch (error) {
+        console.error('error', error);
+      }
     };
 
     const addToCart = (product: Product) => {

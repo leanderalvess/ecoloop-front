@@ -47,7 +47,7 @@ export default defineComponent({
         cart.value = [];
         localStorage.removeItem('cart');
       } catch (error) {
-        console.log('error', error);
+        console.error('error', error);
         alert('Error during checkout. Please try again.');
       }
     };
